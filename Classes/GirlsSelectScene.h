@@ -1,13 +1,13 @@
 //
-//  GirlsSelectSecne.h
+//  GirlsSelectScene.h
 //  GatyaSimulator
 //
 //  Created by 吉田　理貴 on 2016/01/10.
 //
 //
 
-#ifndef __GatyaSimulator__GirlsSelectSecne__
-#define __GatyaSimulator__GirlsSelectSecne__
+#ifndef __GatyaSimulator__GirlsSelectScene__
+#define __GatyaSimulator__GirlsSelectScene__
 
 #include "cocos2d.h"
 
@@ -15,15 +15,15 @@
 
 using namespace cocos2d;
 
-class GirlsSelectSecne : public cocos2d::Layer
+class GirlsSelectScene : public cocos2d::Layer
 {
 protected:
     void initBackground(); // 背景の初期化
     
 public:
-    GirlsSelectSecne(); // コンストラクタ
+    GirlsSelectScene(); // コンストラクタ
     virtual bool init(); // 初期化
-    CREATE_FUNC(GirlsSelectSecne); // create関数生成
+    CREATE_FUNC(GirlsSelectScene); // create関数生成
     static cocos2d::Scene* createScene(); // シーン生成
     
     virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* unused_event);
@@ -33,4 +33,4 @@ public:
     
 };
 
-#endif /* defined(__GatyaSimulator__GirlsSelectSecne__) */
+#endif /* defined(__GatyaSimulator__GirlsSelectScene__) */
