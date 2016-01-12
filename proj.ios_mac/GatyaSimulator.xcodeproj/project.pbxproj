@@ -62,6 +62,7 @@
 		E46853041C4254BA0072E53D /* GirlsSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E46853021C4254BA0072E53D /* GirlsSelectScene.cpp */; };
 		E46853061C425D9C0072E53D /* sr_card in Resources */ = {isa = PBXBuildFile; fileRef = E46853051C425D9C0072E53D /* sr_card */; };
 		E46853081C425DA90072E53D /* r_card in Resources */ = {isa = PBXBuildFile; fileRef = E46853071C425DA90072E53D /* r_card */; };
+		E489A8961C440F9500A75BE8 /* GatyaSimulatorScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		E46853031C4254BA0072E53D /* GirlsSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GirlsSelectScene.h; sourceTree = "<group>"; };
 		E46853051C425D9C0072E53D /* sr_card */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sr_card; sourceTree = "<group>"; };
 		E46853071C425DA90072E53D /* r_card */ = {isa = PBXFileReference; lastKnownFileType = folder; path = r_card; sourceTree = "<group>"; };
+		E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GatyaSimulatorScene.cpp; sourceTree = "<group>"; };
+		E489A8951C440F9500A75BE8 /* GatyaSimulatorScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatyaSimulatorScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +289,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				E46853021C4254BA0072E53D /* GirlsSelectScene.cpp */,
 				E46853031C4254BA0072E53D /* GirlsSelectScene.h */,
+				E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */,
+				E489A8951C440F9500A75BE8 /* GatyaSimulatorScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -482,6 +487,7 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				E489A8961C440F9500A75BE8 /* GatyaSimulatorScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				E46853041C4254BA0072E53D /* GirlsSelectScene.cpp in Sources */,

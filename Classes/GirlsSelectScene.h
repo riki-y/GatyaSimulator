@@ -10,15 +10,45 @@
 #define __GatyaSimulator__GirlsSelectScene__
 
 #include "cocos2d.h"
+#include <string>
+
+using namespace std;
+using namespace cocos2d;
 
 #define WINSIZE Director::getInstance()->getWinSize() // 画面サイズ取得用マクロ
-
-using namespace cocos2d;
+#define CARD_WIDTH 576
+#define CARD_HEIGHT 720
 
 class GirlsSelectScene : public cocos2d::Layer
 {
 protected:
-    void initBackground(); // 背景の初期化
+    void craftCardList(); // カード一覧を作る
+    void movedRightCard(); // カードを右位置に変更
+    void movedLeftCard(); // カードを左位置に変更
+    
+    vector<Sprite*> cardSprites;
+    int selectCardNum = 0;
+    int selectCardMaxNum;
+    
+    vector<string> girlList = {
+        "sr_card/sr_anastasia.png",
+        "sr_card/sr_anzu.png",
+        "sr_card/sr_hotaru.png",
+        "sr_card/sr_izumi.png",
+        "sr_card/sr_kaede.png",
+        "sr_card/sr_koume.png",
+        "sr_card/sr_kozue.png",
+        "sr_card/sr_mayu.png",
+        "sr_card/sr_michiru.png",
+        "sr_card/sr_nina.png",
+        "sr_card/sr_nono.png",
+        "sr_card/sr_sachiko.png",
+        "sr_card/sr_sana.png",
+        "sr_card/sr_shin.png",
+        "sr_card/sr_yukimi.png",
+        "sr_card/sr_yuuki.png",
+        "sr_card/sr_yuzu.png",
+    };
     
 public:
     GirlsSelectScene(); // コンストラクタ
