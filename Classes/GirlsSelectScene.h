@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include <string>
+#include "ButtonSprite.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -29,15 +30,29 @@ protected:
         Z_BUTTON
     };
     
+    enum Tag {
+        T_Background,
+        T_CARD,
+        T_COVER,
+        T_BUTTON
+    };
+    
     void craftCardList(); // カード一覧を作る
     void confirmCard(); // カードの確認
+    void backSelectScene(); // 選択画面に戻る
     void movedRightCard(); // カードを右位置に変更
     void movedLeftCard(); // カードを左位置に変更
+    void createAndMoveGatyaSimulatorScene();
+    ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る
+    ButtonSprite::ButtonType getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex = ButtonSprite::PositionIndex());
     
     vector<Sprite*> cardSprites;
     int selectCardNum = 0;
     int selectCardMaxNum;
     cocos2d::Vec2 _startLocation;
+    ButtonSprite* _selectButton;
+    ButtonSprite* _cancelButton;
+    CC_SYNTHESIZE(bool, _confirmFlag, ConfirmFlag);
     
     vector<string> girlList = {
         "sr_card/sr_anastasia.png",

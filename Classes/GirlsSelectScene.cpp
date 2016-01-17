@@ -7,10 +7,12 @@
 //
 
 #include "GirlsSelectScene.h"
+#include "GatyaSimulatorScene.h"
 
 USING_NS_CC;
 
 GirlsSelectScene::GirlsSelectScene()
+: _confirmFlag(false)
 {
 }
 
@@ -51,24 +53,48 @@ void GirlsSelectScene::craftCardList()
     for(auto list : girlList) {
         auto card = Sprite::create(list);
         card->setAnchorPoint(Point::ZERO);
-        card->setPosition(Point(32 + (WINSIZE.width - 64)*i, WINSIZE.height/4));
+        card->setPosition(Point(32 + (WINSIZE.width - 64)*i, WINSIZE.height/2-CARD_HEIGHT/2));
         
         card-> setScale(0.9, 0.9);
         cardSprites.push_back(card);
         
-        addChild(card, Z_CARD);
+        addChild(card, Z_CARD, T_CARD);
         
         i++;
     }
 }
 
+ButtonSprite* GirlsSelectScene::createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex)
+{
+    auto button = ButtonSprite::create(positionIndex, buttonType);
+    button->setPositionIndex(positionIndex);
+    addChild(button, Z_BUTTON, T_BUTTON);
+    
+    return button;
+}
+
 void GirlsSelectScene::confirmCard()
 {
-    auto cover = Sprite::create("cover.png");
-    cover->setAnchorPoint(Point::ZERO);
-    cover->setPosition(Point::ZERO);
+    if (!getConfirmFlag()) {
+        auto cover = Sprite::create("cover.png");
+        cover->setAnchorPoint(Point::ZERO);
+        cover->setPosition(Point::ZERO);
+        addChild(cover, Z_COVER, T_COVER);
+        
+        _selectButton = createButton(ButtonSprite::ButtonType::Select, ButtonSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2 + 100));
+        _cancelButton = createButton(ButtonSprite::ButtonType::Cancel, ButtonSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2 - 100));
+        
+        setConfirmFlag(true);
+    }
+}
+
+void GirlsSelectScene::backSelectScene()
+{
+    removeChildByTag(T_COVER);
+    removeChild(_selectButton);
+    removeChild(_cancelButton);
     
-    addChild(cover, Z_COVER);
+    setConfirmFlag(false);
 }
 
 void GirlsSelectScene::movedRightCard()
@@ -93,7 +119,48 @@ void GirlsSelectScene::movedLeftCard()
     }
 }
 
-bool GirlsSelectScene::onTouchBegan(Touch *touch, Event* unused_event) {
+ButtonSprite::ButtonType GirlsSelectScene::getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex)
+{
+    float selectButtonDistance = _selectButton->getPosition().getDistance(touchPos);
+    
+    if (selectButtonDistance <= BUTTON_SIZE / 2) {
+        return _selectButton->getButtonType();
+    }
+    
+    float cancelButtonDistance = _cancelButton->getPosition().getDistance(touchPos);
+    
+    if (cancelButtonDistance <= BUTTON_SIZE / 2) {
+        return _cancelButton->getButtonType();
+    }
+    
+    return ButtonSprite::ButtonType::None;
+}
+
+void GirlsSelectScene::createAndMoveGatyaSimulatorScene()
+{
+    auto scene = GatyaSimulatorScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+}
+
+bool GirlsSelectScene::onTouchBegan(Touch *touch, Event* unused_event)
+{
+    if (getConfirmFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Select:
+                _selectButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::Cancel:
+                _cancelButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::None:
+                break;
+            default:
+                break;
+        }
+        
+        return true;
+    }
+    
     _startLocation = touch->getLocation();
     
     return true;
@@ -101,11 +168,47 @@ bool GirlsSelectScene::onTouchBegan(Touch *touch, Event* unused_event) {
 
 void GirlsSelectScene::onTouchMoved(Touch* touch, Event* unused_event)
 {
-    
+    if (getConfirmFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Select:
+                _selectButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::Cancel:
+                _cancelButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::None:
+                _selectButton->changeButtonImageTexture();
+                _cancelButton->changeButtonImageTexture();
+                break;
+            default:
+                break;
+        }
+        
+        return;
+    }
 }
 
 void GirlsSelectScene::onTouchEnded(Touch* touch, Event* unused_event)
 {
+    if (getConfirmFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Select:
+                _selectButton->changeButtonImageTexture();
+                createAndMoveGatyaSimulatorScene();
+                break;
+            case ButtonSprite::ButtonType::Cancel:
+                _cancelButton->changeButtonImageTexture();
+                backSelectScene();
+                break;
+            case ButtonSprite::ButtonType::None:
+                break;
+            default:
+                break;
+        }
+        
+        return;
+    }
+    
     float movement = _startLocation.x - touch->getLocation().x;
     
     if (movement < -100) {

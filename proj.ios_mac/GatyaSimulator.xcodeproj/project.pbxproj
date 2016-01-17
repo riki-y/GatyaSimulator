@@ -64,6 +64,11 @@
 		E46853061C425D9C0072E53D /* sr_card in Resources */ = {isa = PBXBuildFile; fileRef = E46853051C425D9C0072E53D /* sr_card */; };
 		E46853081C425DA90072E53D /* r_card in Resources */ = {isa = PBXBuildFile; fileRef = E46853071C425DA90072E53D /* r_card */; };
 		E489A8961C440F9500A75BE8 /* GatyaSimulatorScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */; };
+		E4D76FB71C4B82C200BE7F0D /* cancel_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FB61C4B82C200BE7F0D /* cancel_button.png */; };
+		E4D76FB91C4B82D900BE7F0D /* push_cancel_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FB81C4B82D900BE7F0D /* push_cancel_button.png */; };
+		E4D76FBB1C4B82E500BE7F0D /* select_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FBA1C4B82E500BE7F0D /* select_button.png */; };
+		E4D76FBD1C4B82F400BE7F0D /* push_select_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FBC1C4B82F400BE7F0D /* push_select_button.png */; };
+		E4D76FC01C4B847900BE7F0D /* ButtonSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FBE1C4B847900BE7F0D /* ButtonSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +163,12 @@
 		E46853071C425DA90072E53D /* r_card */ = {isa = PBXFileReference; lastKnownFileType = folder; path = r_card; sourceTree = "<group>"; };
 		E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GatyaSimulatorScene.cpp; sourceTree = "<group>"; };
 		E489A8951C440F9500A75BE8 /* GatyaSimulatorScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatyaSimulatorScene.h; sourceTree = "<group>"; };
+		E4D76FB61C4B82C200BE7F0D /* cancel_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_button.png; sourceTree = "<group>"; };
+		E4D76FB81C4B82D900BE7F0D /* push_cancel_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_cancel_button.png; sourceTree = "<group>"; };
+		E4D76FBA1C4B82E500BE7F0D /* select_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select_button.png; sourceTree = "<group>"; };
+		E4D76FBC1C4B82F400BE7F0D /* push_select_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_select_button.png; sourceTree = "<group>"; };
+		E4D76FBE1C4B847900BE7F0D /* ButtonSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonSprite.cpp; sourceTree = "<group>"; };
+		E4D76FBF1C4B847900BE7F0D /* ButtonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +286,10 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4D76FBC1C4B82F400BE7F0D /* push_select_button.png */,
+				E4D76FBA1C4B82E500BE7F0D /* select_button.png */,
+				E4D76FB81C4B82D900BE7F0D /* push_cancel_button.png */,
+				E4D76FB61C4B82C200BE7F0D /* cancel_button.png */,
 				7543065F1C45752A00B7AE6E /* cover.png */,
 				E46853071C425DA90072E53D /* r_card */,
 				E46853051C425D9C0072E53D /* sr_card */,
@@ -294,6 +309,8 @@
 				E46853031C4254BA0072E53D /* GirlsSelectScene.h */,
 				E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */,
 				E489A8951C440F9500A75BE8 /* GatyaSimulatorScene.h */,
+				E4D76FBE1C4B847900BE7F0D /* ButtonSprite.cpp */,
+				E4D76FBF1C4B847900BE7F0D /* ButtonSprite.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -453,13 +470,17 @@
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
+				E4D76FBB1C4B82E500BE7F0D /* select_button.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				E4D76FBD1C4B82F400BE7F0D /* push_select_button.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				E46853081C425DA90072E53D /* r_card in Resources */,
 				E46853061C425D9C0072E53D /* sr_card in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				E4D76FB71C4B82C200BE7F0D /* cancel_button.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				E4D76FB91C4B82D900BE7F0D /* push_cancel_button.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
@@ -495,6 +516,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				E46853041C4254BA0072E53D /* GirlsSelectScene.cpp in Sources */,
+				E4D76FC01C4B847900BE7F0D /* ButtonSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
