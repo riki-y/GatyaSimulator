@@ -24,14 +24,14 @@ class GirlsSelectScene : public cocos2d::Layer
 {
 protected:
     enum ZOrder {
-        Z_Background,
+        Z_BACKGROUND,
         Z_CARD,
         Z_COVER,
         Z_BUTTON
     };
     
     enum Tag {
-        T_Background,
+        T_BACKGROUND,
         T_CARD,
         T_COVER,
         T_BUTTON
@@ -42,7 +42,7 @@ protected:
     void backSelectScene(); // 選択画面に戻る
     void movedRightCard(); // カードを右位置に変更
     void movedLeftCard(); // カードを左位置に変更
-    void createAndMoveGatyaSimulatorScene();
+    void createAndMoveGatyaSimulatorScene(); // ガチャシュミレーター画面を作って移動
     ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る
     ButtonSprite::ButtonType getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex = ButtonSprite::PositionIndex());
     

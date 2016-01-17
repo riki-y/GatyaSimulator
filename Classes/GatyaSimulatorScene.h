@@ -10,6 +10,9 @@
 #define __GatyaSimulator__GatyaSimulatorScene__
 
 #include "cocos2d.h"
+#include "ButtonSprite.h"
+
+#define WINSIZE Director::getInstance()->getWinSize() // 画面サイズ取得用マクロ
 
 using namespace cocos2d;
 
@@ -17,8 +20,22 @@ class GatyaSimulatorScene : public cocos2d::Layer
 {
 protected:
     enum ZOrder {
-        Z_Background
+        Z_BACKGROUND,
+        Z_BUTTON,
     };
+    
+    enum Tag {
+        T_BACKGROUND,
+        T_BUTTON,
+    };
+    
+    void initGatyaButton(); // ガチャボタンの初期化
+    void createAndMoveGatyaDrawScene(int drawCardNum = 1); // ガチャを引く画面を作って移動
+    ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る
+    ButtonSprite::ButtonType getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex = ButtonSprite::PositionIndex());
+    
+    ButtonSprite* _drawTenCardButton;
+    ButtonSprite* _drawOneCardButton;
     
 public:
     GatyaSimulatorScene(); // コンストラクタ

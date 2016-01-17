@@ -23,6 +23,8 @@ public:
     {
         Select,
         Cancel,
+        DrawOneCard,
+        DrawTenCard,
         None,
     };
     
