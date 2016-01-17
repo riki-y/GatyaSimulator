@@ -46,6 +46,7 @@ public:
     string _filePath;
     
     CC_PROPERTY(PositionIndex, _positionIndex, PositionIndex); // 位置インデックス
+    CC_PROPERTY(float, _scale, Scale);
 };
 
 #endif /* defined(__GatyaSimulator__CardSprite__) */

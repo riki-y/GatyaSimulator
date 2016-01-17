@@ -79,6 +79,10 @@ std::string ButtonSprite::getButtonImageFilePath(ButtonType buttonType)
             return "select_button.png";
         case ButtonType::Cancel:
             return "cancel_button.png";
+        case ButtonType::Back:
+            return "back_button.png";
+        case ButtonType::Retry:
+            return "retry_button.png";
         case ButtonType::DrawOneCard:
             return "draw_one_card.png";
         case ButtonType::DrawTenCard:
@@ -97,6 +101,10 @@ std::string ButtonSprite::getPushButtonImageFilePath()
             return "push_select_button.png";
         case ButtonType::Cancel:
             return "push_cancel_button.png";
+        case ButtonType::Back:
+            return "push_back_button.png";
+        case ButtonType::Retry:
+            return "push_retry_button.png";
         case ButtonType::DrawOneCard:
             return "push_draw_one_card.png";
         case ButtonType::DrawTenCard:

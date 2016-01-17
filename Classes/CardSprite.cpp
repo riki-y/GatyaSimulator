@@ -65,6 +65,17 @@ Point CardSprite::getPointForPositionIndex(PositionIndex positionIndex)
     return Point(positionIndex.x, positionIndex.y);
 }
 
+void CardSprite::setScale(float scale)
+{
+    cocos2d::Sprite::setScale(scale, scale);
+    _scale = scale;
+}
+
+float CardSprite::getScale()
+{
+    return _scale;
+}
+
 // 位置インデックスからタグを取得
 int CardSprite::getGenerateTag(PositionIndex positionIndex)
 {
@@ -74,11 +85,11 @@ int CardSprite::getGenerateTag(PositionIndex positionIndex)
 void CardSprite::reverseCard(string filePath)
 {
     _filePath = filePath;
-    auto scale1 = ScaleTo::create(0.5, 0, 1);
+    auto scale1 = ScaleTo::create(0.1, 0, _scale);
     auto func = CallFunc::create([&]() {
         setTexture(_filePath);
     });
-    auto scale2 = ScaleTo::create(0.5, 1, 1);
+    auto scale2 = ScaleTo::create(0.1, _scale, _scale);
     
     auto seq = Sequence::create(scale1, func, scale2, NULL);
     

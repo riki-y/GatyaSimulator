@@ -23,6 +23,8 @@ public:
     {
         Select,
         Cancel,
+        Back,
+        Retry,
         DrawOneCard,
         DrawTenCard,
         None,

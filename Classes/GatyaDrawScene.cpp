@@ -8,11 +8,13 @@
 
 #include "GatyaDrawScene.h"
 #include <random>
+#include "GatyaSimulatorScene.h"
 
 USING_NS_CC;
 
 // コンストラクタ
 GatyaDrawScene::GatyaDrawScene()
+: _reverseFlag(false)
 {
 }
 
@@ -57,17 +59,32 @@ void GatyaDrawScene::initCard()
         _card.filePath = RGirlList.at(i);
     }
     
-    _cardSprite = createCard(CardSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2));
+    _cardSprite = createCard(CardSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2+50));
+}
+
+void GatyaDrawScene::initButton()
+{
+    _backButton = createButton(ButtonSprite::ButtonType::Back, ButtonSprite::PositionIndex(WINSIZE.width/4, BUTTON_SIZE));
+    _retryButton = createButton(ButtonSprite::ButtonType::Retry, ButtonSprite::PositionIndex(WINSIZE.width*3/4, BUTTON_SIZE));
 }
 
 CardSprite* GatyaDrawScene::createCard(CardSprite::PositionIndex positionIndex)
 {
     auto card = CardSprite::create(positionIndex);
     card->setPositionIndex(positionIndex);
-    card->setScale(0.9, 0.9);
+    card->setScale(0.9);
     addChild(card, Z_CARD);
         
     return card;
+}
+
+ButtonSprite* GatyaDrawScene::createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex)
+{
+    auto button = ButtonSprite::create(positionIndex, buttonType);
+    button->setPositionIndex(positionIndex);
+    addChild(button, Z_BUTTON, T_BUTTON);
+    
+    return button;
 }
 
 bool GatyaDrawScene::isSRCard()
@@ -87,22 +104,101 @@ void GatyaDrawScene::getTouchCard(Point touchPos)
     
     if (distance <= CARD_WIDTH / 2) {
         _cardSprite->reverseCard(_card.filePath);
+        setReverseFlag(true);
+        initButton();
     }
+}
+
+ButtonSprite::ButtonType GatyaDrawScene::getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex)
+{
+    float backButtonDistance = _backButton->getPosition().getDistance(touchPos);
+    
+    if (backButtonDistance <= BUTTON_SIZE / 2) {
+        return _backButton->getButtonType();
+    }
+    
+    float retryButtonDistance = _retryButton->getPosition().getDistance(touchPos);
+    
+    if (retryButtonDistance <= BUTTON_SIZE / 2) {
+        return _retryButton->getButtonType();
+    }
+    
+    return ButtonSprite::ButtonType::None;
+}
+
+void GatyaDrawScene::backGatyaSimulatorScene()
+{
+    auto scene = GatyaSimulatorScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+
+}
+
+void GatyaDrawScene::retryGatyaDrawScene()
+{
+    auto scene = GatyaDrawScene::createScene();
+    Director::getInstance()->replaceScene(scene);
 }
 
 bool GatyaDrawScene::onTouchBegan(Touch* touch, Event* unused_event)
 {
-    getTouchCard(touch->getLocation());
-    return false;
+    if (getReverseFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Back:
+                _backButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::Retry:
+                _retryButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::None:
+                break;
+            default:
+                break;
+        }
+    }
+    
+    return true;
 }
 
 void GatyaDrawScene::onTouchMoved(Touch* touch, Event* unused_event)
 {
+    if (getReverseFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Back:
+                _backButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::Retry:
+                _retryButton->changePushButtonImageTexture();
+                break;
+            case ButtonSprite::ButtonType::None:
+                _backButton->changeButtonImageTexture();
+                _retryButton->changeButtonImageTexture();
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 void GatyaDrawScene::onTouchEnded(Touch* touch, Event* unused_event)
 {
-    getTouchCard(touch->getLocation());
+    if (getReverseFlag()) {
+        switch (getTouchButtonType(touch->getLocation())) {
+            case ButtonSprite::ButtonType::Back:
+                _backButton->changeButtonImageTexture();
+                backGatyaSimulatorScene();
+                break;
+            case ButtonSprite::ButtonType::Retry:
+                _retryButton->changeButtonImageTexture();
+                retryGatyaDrawScene();
+                break;
+            case ButtonSprite::ButtonType::None:
+                break;
+            default:
+                break;
+        }
+    } else {
+        getTouchCard(touch->getLocation());   
+    }
 }
 
 void GatyaDrawScene::onTouchCancelled(Touch* touch, Event* unused_event)

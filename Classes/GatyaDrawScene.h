@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include <string>
 #include "CardSprite.h"
+#include "ButtonSprite.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -39,11 +40,13 @@ class GatyaDrawScene : public cocos2d::Layer
 protected:
     enum ZOrder {
         Z_BACKGROUND,
+        Z_BUTTON,
         Z_CARD,
     };
     
     enum Tag {
         T_BACKGROUND,
+        T_BUTTON,
         T_CARD,
     };
     
@@ -209,12 +212,23 @@ protected:
     Card _card;
     CardSprite* _cardSprite;
     
+    ButtonSprite* _backButton;
+    ButtonSprite* _retryButton;
+    
+    ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る
+    ButtonSprite::ButtonType getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex = ButtonSprite::PositionIndex());
+    void initButton();
+    
     void initCard();
     CardSprite* createCard(CardSprite::PositionIndex positionIndex);
     
     bool isSRCard();
     void getTouchCard(Point touchPos);
     void moveCard();
+    void backGatyaSimulatorScene();
+    void retryGatyaDrawScene();
+    
+    CC_SYNTHESIZE(bool, _reverseFlag, ReverseFlag);
     
 public:
     GatyaDrawScene(); // コンストラクタ

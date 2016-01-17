@@ -77,6 +77,10 @@
 		E4D76FCE1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FCC1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp */; };
 		E4D76FD11C4C084200BE7F0D /* card_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FD01C4C084200BE7F0D /* card_back.png */; };
 		E4D76FD41C4C1A8E00BE7F0D /* CardSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */; };
+		E4D76FD61C4C34D700BE7F0D /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FD51C4C34D700BE7F0D /* back_button.png */; };
+		E4D76FD81C4C34E500BE7F0D /* push_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FD71C4C34E500BE7F0D /* push_back_button.png */; };
+		E4D76FDA1C4C34F200BE7F0D /* retry_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FD91C4C34F200BE7F0D /* retry_button.png */; };
+		E4D76FDC1C4C34FF00BE7F0D /* push_retry_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FDB1C4C34FF00BE7F0D /* push_retry_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +193,10 @@
 		E4D76FD01C4C084200BE7F0D /* card_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_back.png; sourceTree = "<group>"; };
 		E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardSprite.cpp; sourceTree = "<group>"; };
 		E4D76FD31C4C1A8E00BE7F0D /* CardSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSprite.h; sourceTree = "<group>"; };
+		E4D76FD51C4C34D700BE7F0D /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_button.png; sourceTree = "<group>"; };
+		E4D76FD71C4C34E500BE7F0D /* push_back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_back_button.png; sourceTree = "<group>"; };
+		E4D76FD91C4C34F200BE7F0D /* retry_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry_button.png; sourceTree = "<group>"; };
+		E4D76FDB1C4C34FF00BE7F0D /* push_retry_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_retry_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +314,10 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4D76FDB1C4C34FF00BE7F0D /* push_retry_button.png */,
+				E4D76FD91C4C34F200BE7F0D /* retry_button.png */,
+				E4D76FD71C4C34E500BE7F0D /* push_back_button.png */,
+				E4D76FD51C4C34D700BE7F0D /* back_button.png */,
 				E4D76FD01C4C084200BE7F0D /* card_back.png */,
 				E4D76FC51C4BCD1B00BE7F0D /* push_draw_one_card.png */,
 				E4D76FC61C4BCD1B00BE7F0D /* push_draw_ten_card.png */,
@@ -505,11 +517,14 @@
 				E4D76FBB1C4B82E500BE7F0D /* select_button.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				E4D76FD81C4C34E500BE7F0D /* push_back_button.png in Resources */,
 				E4D76FD11C4C084200BE7F0D /* card_back.png in Resources */,
+				E4D76FD61C4C34D700BE7F0D /* back_button.png in Resources */,
 				E4D76FBD1C4B82F400BE7F0D /* push_select_button.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				E46853081C425DA90072E53D /* r_card in Resources */,
 				E46853061C425D9C0072E53D /* sr_card in Resources */,
+				E4D76FDA1C4C34F200BE7F0D /* retry_button.png in Resources */,
 				E4D76FC71C4BCD1B00BE7F0D /* push_draw_one_card.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				E4D76FB71C4B82C200BE7F0D /* cancel_button.png in Resources */,
@@ -520,6 +535,7 @@
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				E4D76FDC1C4C34FF00BE7F0D /* push_retry_button.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
