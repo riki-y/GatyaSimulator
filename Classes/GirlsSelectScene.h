@@ -22,13 +22,22 @@ using namespace cocos2d;
 class GirlsSelectScene : public cocos2d::Layer
 {
 protected:
+    enum ZOrder {
+        Z_Background,
+        Z_CARD,
+        Z_COVER,
+        Z_BUTTON
+    };
+    
     void craftCardList(); // カード一覧を作る
+    void confirmCard(); // カードの確認
     void movedRightCard(); // カードを右位置に変更
     void movedLeftCard(); // カードを左位置に変更
     
     vector<Sprite*> cardSprites;
     int selectCardNum = 0;
     int selectCardMaxNum;
+    cocos2d::Vec2 _startLocation;
     
     vector<string> girlList = {
         "sr_card/sr_anastasia.png",

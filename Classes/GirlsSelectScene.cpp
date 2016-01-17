@@ -56,10 +56,19 @@ void GirlsSelectScene::craftCardList()
         card-> setScale(0.9, 0.9);
         cardSprites.push_back(card);
         
-        addChild(card);
+        addChild(card, Z_CARD);
         
         i++;
     }
+}
+
+void GirlsSelectScene::confirmCard()
+{
+    auto cover = Sprite::create("cover.png");
+    cover->setAnchorPoint(Point::ZERO);
+    cover->setPosition(Point::ZERO);
+    
+    addChild(cover, Z_COVER);
 }
 
 void GirlsSelectScene::movedRightCard()
@@ -85,13 +94,9 @@ void GirlsSelectScene::movedLeftCard()
 }
 
 bool GirlsSelectScene::onTouchBegan(Touch *touch, Event* unused_event) {
-    if (touch->getLocation().x < WINSIZE.width / 2) {
-        movedLeftCard();
-    } else {
-        movedRightCard();
-    }
+    _startLocation = touch->getLocation();
     
-    return false;
+    return true;
 }
 
 void GirlsSelectScene::onTouchMoved(Touch* touch, Event* unused_event)
@@ -101,7 +106,15 @@ void GirlsSelectScene::onTouchMoved(Touch* touch, Event* unused_event)
 
 void GirlsSelectScene::onTouchEnded(Touch* touch, Event* unused_event)
 {
+    float movement = _startLocation.x - touch->getLocation().x;
     
+    if (movement < -100) {
+        movedLeftCard();
+    } else if ( movement > 100) {
+        movedRightCard();
+    } else if (-50 < movement && movement < 50) {
+        confirmCard();
+    }
 }
 
 void GirlsSelectScene::onTouchCancelled(Touch* touch, Event* unused_event)
