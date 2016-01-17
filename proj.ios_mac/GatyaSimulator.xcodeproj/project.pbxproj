@@ -73,6 +73,10 @@
 		E4D76FC41C4BC8BC00BE7F0D /* draw_ten_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FC21C4BC8BC00BE7F0D /* draw_ten_card.png */; };
 		E4D76FC71C4BCD1B00BE7F0D /* push_draw_one_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FC51C4BCD1B00BE7F0D /* push_draw_one_card.png */; };
 		E4D76FC81C4BCD1B00BE7F0D /* push_draw_ten_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FC61C4BCD1B00BE7F0D /* push_draw_ten_card.png */; };
+		E4D76FCB1C4BD6AD00BE7F0D /* GatyaDrawScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FC91C4BD6AD00BE7F0D /* GatyaDrawScene.cpp */; };
+		E4D76FCE1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FCC1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp */; };
+		E4D76FD11C4C084200BE7F0D /* card_back.png in Resources */ = {isa = PBXBuildFile; fileRef = E4D76FD01C4C084200BE7F0D /* card_back.png */; };
+		E4D76FD41C4C1A8E00BE7F0D /* CardSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +181,14 @@
 		E4D76FC21C4BC8BC00BE7F0D /* draw_ten_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draw_ten_card.png; sourceTree = "<group>"; };
 		E4D76FC51C4BCD1B00BE7F0D /* push_draw_one_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_draw_one_card.png; sourceTree = "<group>"; };
 		E4D76FC61C4BCD1B00BE7F0D /* push_draw_ten_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push_draw_ten_card.png; sourceTree = "<group>"; };
+		E4D76FC91C4BD6AD00BE7F0D /* GatyaDrawScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GatyaDrawScene.cpp; sourceTree = "<group>"; };
+		E4D76FCA1C4BD6AD00BE7F0D /* GatyaDrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatyaDrawScene.h; sourceTree = "<group>"; };
+		E4D76FCC1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GatyaTenDrawScene.cpp; sourceTree = "<group>"; };
+		E4D76FCD1C4BE2E900BE7F0D /* GatyaTenDrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatyaTenDrawScene.h; sourceTree = "<group>"; };
+		E4D76FCF1C4BE5BA00BE7F0D /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		E4D76FD01C4C084200BE7F0D /* card_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_back.png; sourceTree = "<group>"; };
+		E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardSprite.cpp; sourceTree = "<group>"; };
+		E4D76FD31C4C1A8E00BE7F0D /* CardSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardSprite.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +306,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4D76FD01C4C084200BE7F0D /* card_back.png */,
 				E4D76FC51C4BCD1B00BE7F0D /* push_draw_one_card.png */,
 				E4D76FC61C4BCD1B00BE7F0D /* push_draw_ten_card.png */,
 				E4D76FC11C4BC8BC00BE7F0D /* draw_one_card.png */,
@@ -317,12 +330,19 @@
 			children = (
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
+				E4D76FBE1C4B847900BE7F0D /* ButtonSprite.cpp */,
+				E4D76FBF1C4B847900BE7F0D /* ButtonSprite.h */,
+				E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */,
+				E4D76FD31C4C1A8E00BE7F0D /* CardSprite.h */,
+				E4D76FCF1C4BE5BA00BE7F0D /* Common.h */,
 				E46853021C4254BA0072E53D /* GirlsSelectScene.cpp */,
 				E46853031C4254BA0072E53D /* GirlsSelectScene.h */,
 				E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */,
 				E489A8951C440F9500A75BE8 /* GatyaSimulatorScene.h */,
-				E4D76FBE1C4B847900BE7F0D /* ButtonSprite.cpp */,
-				E4D76FBF1C4B847900BE7F0D /* ButtonSprite.h */,
+				E4D76FC91C4BD6AD00BE7F0D /* GatyaDrawScene.cpp */,
+				E4D76FCA1C4BD6AD00BE7F0D /* GatyaDrawScene.h */,
+				E4D76FCC1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp */,
+				E4D76FCD1C4BE2E900BE7F0D /* GatyaTenDrawScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -485,6 +505,7 @@
 				E4D76FBB1C4B82E500BE7F0D /* select_button.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
+				E4D76FD11C4C084200BE7F0D /* card_back.png in Resources */,
 				E4D76FBD1C4B82F400BE7F0D /* push_select_button.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				E46853081C425DA90072E53D /* r_card in Resources */,
@@ -530,8 +551,11 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				E489A8961C440F9500A75BE8 /* GatyaSimulatorScene.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				E4D76FCE1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				E4D76FCB1C4BD6AD00BE7F0D /* GatyaDrawScene.cpp in Sources */,
 				E46853041C4254BA0072E53D /* GirlsSelectScene.cpp in Sources */,
+				E4D76FD41C4C1A8E00BE7F0D /* CardSprite.cpp in Sources */,
 				E4D76FC01C4B847900BE7F0D /* ButtonSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

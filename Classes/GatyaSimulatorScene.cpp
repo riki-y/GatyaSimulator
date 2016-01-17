@@ -7,6 +7,8 @@
 //
 
 #include "GatyaSimulatorScene.h"
+#include "GatyaDrawScene.h"
+#include "GatyaTenDrawScene.h"
 
 USING_NS_CC;
 
@@ -78,9 +80,16 @@ ButtonSprite::ButtonType GatyaSimulatorScene::getTouchButtonType(Point touchPos,
     return ButtonSprite::ButtonType::None;
 }
 
-void GatyaSimulatorScene::createAndMoveGatyaDrawScene(int drawCardNum)
+void GatyaSimulatorScene::createAndMoveGatyaDrawScene()
 {
-    
+    auto scene = GatyaDrawScene::createScene();
+    Director::getInstance()->replaceScene(scene);
+}
+
+void GatyaSimulatorScene::createAndMoveGatyaTenDrawScene()
+{
+    auto scene = GatyaTenDrawScene::createScene();
+    Director::getInstance()->replaceScene(scene);
 }
 
 bool GatyaSimulatorScene::onTouchBegan(Touch* touch, Event* unused_event)
@@ -128,7 +137,7 @@ void GatyaSimulatorScene::onTouchEnded(Touch* touch, Event* unused_event)
             break;
         case ButtonSprite::ButtonType::DrawTenCard:
             _drawTenCardButton->changeButtonImageTexture();
-            createAndMoveGatyaDrawScene(10);
+            createAndMoveGatyaTenDrawScene();
             break;
         case ButtonSprite::ButtonType::None:
             break;

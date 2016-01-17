@@ -138,6 +138,9 @@ ButtonSprite::ButtonType GirlsSelectScene::getTouchButtonType(Point touchPos, Bu
 
 void GirlsSelectScene::createAndMoveGatyaSimulatorScene()
 {
+    cocos2d::UserDefault* user = cocos2d::UserDefault::sharedUserDefault();
+    user->setIntegerForKey("selectCardNum", selectCardNum);
+    
     auto scene = GatyaSimulatorScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }

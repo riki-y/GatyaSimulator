@@ -30,7 +30,8 @@ protected:
     };
     
     void initGatyaButton(); // ガチャボタンの初期化
-    void createAndMoveGatyaDrawScene(int drawCardNum = 1); // ガチャを引く画面を作って移動
+    void createAndMoveGatyaDrawScene(); // ガチャを引く画面を作って移動
+    void createAndMoveGatyaTenDrawScene(); // 10連ガチャを引く画面を作って移動
     ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る
     ButtonSprite::ButtonType getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex = ButtonSprite::PositionIndex());
     
