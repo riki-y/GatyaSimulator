@@ -29,12 +29,6 @@ struct Card
     string filePath;
 };
 
-struct PosIndex
-{
-    int x;
-    int y;
-};
-
 class GatyaDrawScene : public cocos2d::Layer
 {
 protected:
