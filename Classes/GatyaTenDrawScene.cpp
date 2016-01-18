@@ -51,15 +51,32 @@ bool GatyaTenDrawScene::init()
 
 void GatyaTenDrawScene::initCard()
 {
-    if (isSRCard()) {
-        int i = arc4random_uniform(SR_CARD_NUM + 1);
-        _card.filePath = SRGirlList.at(i);
-    } else {
-        int i = arc4random_uniform(R_CARD_NUM + 1);
-        _card.filePath = RGirlList.at(i);
+    _cards.clear();
+    
+    for (int i=0;i<CARD_NUM;i++) {
+        Cards card;
+        if (isSRCard()) {
+            int j = arc4random_uniform(SR_CARD_NUM + 1);
+            card.filePath = SRGirlList.at(j);
+        } else {
+            int j = arc4random_uniform(R_CARD_NUM + 1);
+            card.filePath = RGirlList.at(j);
+        }
+        
+        _cards.push_back(card);
     }
     
-    _cardSprite = createCard(CardSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2+50));
+    int tag = 1;
+    
+    for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < 3; y++) {
+            if(y == 2 && x > 1) {
+                break;
+            }
+            createCard(CardSprite::PositionIndex((ONE_CARD_WIDTH*CARD_SCALE)*x+(ONE_CARD_WIDTH*CARD_SCALE)/2+(ONE_CARD_WIDTH*CARD_SCALE)*(x+1)/5, WINSIZE.height*4/5 - ONE_CARD_HEIGHT*CARD_SCALE*y - 25*y), tag);
+            tag++;
+        }
+    }
 }
 
 void GatyaTenDrawScene::initButton()
@@ -68,12 +85,12 @@ void GatyaTenDrawScene::initButton()
     _retryButton = createButton(ButtonSprite::ButtonType::Retry, ButtonSprite::PositionIndex(WINSIZE.width*3/4, BUTTON_SIZE));
 }
 
-CardSprite* GatyaTenDrawScene::createCard(CardSprite::PositionIndex positionIndex)
+CardSprite* GatyaTenDrawScene::createCard(CardSprite::PositionIndex positionIndex, int tag)
 {
     auto card = CardSprite::create(positionIndex);
     card->setPositionIndex(positionIndex);
-    card->setScale(0.3);
-    addChild(card, Z_CARD);
+    card->setScale(CARD_SCALE);
+    addChild(card, Z_CARD, CARD_TAG+tag);
     
     return card;
 }
@@ -96,17 +113,6 @@ bool GatyaTenDrawScene::isSRCard()
     }
     
     return false;
-}
-
-void GatyaTenDrawScene::getTouchCard(Point touchPos)
-{
-    float distance = _cardSprite->getPosition().getDistance(touchPos);
-    
-    if (distance <= CARD_WIDTH / 2) {
-        _cardSprite->reverseCard(_card.filePath);
-        setReverseFlag(true);
-        initButton();
-    }
 }
 
 ButtonSprite::ButtonType GatyaTenDrawScene::getTouchButtonType(Point touchPos, ButtonSprite::PositionIndex withoutPosIndex)
@@ -197,7 +203,13 @@ void GatyaTenDrawScene::onTouchEnded(Touch* touch, Event* unused_event)
                 break;
         }
     } else {
-        getTouchCard(touch->getLocation());
+        for (int tag = 1; tag <= 10; tag++) {
+            auto cardSprite = (CardSprite*)getChildByTag(CARD_TAG + tag);
+            cardSprite->reverseCard(_cards[tag-1].filePath);
+        }
+        
+        setReverseFlag(true);
+        initButton();
     }
 }
 

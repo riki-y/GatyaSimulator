@@ -20,9 +20,11 @@ using namespace cocos2d;
 #define WINSIZE Director::getInstance()->getWinSize() // 画面サイズ取得用マクロ
 #define SR_CARD_NUM 17
 #define R_CARD_NUM 137
-
-#define CARD_WIDTH 192
-#define CARD_HEIGHT 240
+#define CARD_NUM 10
+#define ONE_CARD_WIDTH 640
+#define ONE_CARD_HEIGHT 800
+#define CARD_SCALE 0.2
+#define CARDS_TAG 300
 
 struct Cards
 {
@@ -204,7 +206,9 @@ protected:
     };
     
     Cards _card;
+    std::vector<Cards> _cards;
     CardSprite* _cardSprite;
+    std::vector<CardSprite> _cardSprites;
     
     ButtonSprite* _backButton;
     ButtonSprite* _retryButton;
@@ -214,10 +218,9 @@ protected:
     void initButton();
     
     void initCard();
-    CardSprite* createCard(CardSprite::PositionIndex positionIndex);
+    CardSprite* createCard(CardSprite::PositionIndex positionIndex, int tag);
     
     bool isSRCard();
-    void getTouchCard(Point touchPos);
     void moveCard();
     void backGatyaSimulatorScene();
     void retryGatyaDrawScene();
