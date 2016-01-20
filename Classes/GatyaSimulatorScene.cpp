@@ -9,6 +9,7 @@
 #include "GatyaSimulatorScene.h"
 #include "GatyaDrawScene.h"
 #include "GatyaTenDrawScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -44,6 +45,7 @@ bool GatyaSimulatorScene::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
     
     initGatyaButton();
+    initTotalAmountLabel();
     
     return true;
 }
@@ -52,6 +54,15 @@ void GatyaSimulatorScene::initGatyaButton()
 {
     _drawOneCardButton = createButton(ButtonSprite::ButtonType::DrawOneCard, ButtonSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2 + 100));
     _drawTenCardButton = createButton(ButtonSprite::ButtonType::DrawTenCard, ButtonSprite::PositionIndex(WINSIZE.width/2, WINSIZE.height/2 - 100));
+}
+
+void GatyaSimulatorScene::initTotalAmountLabel()
+{
+    string totalAmountString = StringUtils::format("%d", GameManager::sharedGameManager()->totalAmount);
+    auto totalAmount = Label::createWithSystemFont(totalAmountString + " mc", "Arial", 30);
+    totalAmount->setPosition(Point(WINSIZE.width - totalAmount->getContentSize().width, WINSIZE.height - totalAmount->getContentSize().height));
+    totalAmount->setTextColor(Color4B::WHITE);
+    addChild(totalAmount, Z_LABEL, T_LABEL);
 }
 
 ButtonSprite* GatyaSimulatorScene::createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex)
@@ -82,12 +93,16 @@ ButtonSprite::ButtonType GatyaSimulatorScene::getTouchButtonType(Point touchPos,
 
 void GatyaSimulatorScene::createAndMoveGatyaDrawScene()
 {
+    removeFromParentAndCleanup(true);
+    GameManager::sharedGameManager()->totalAmount += 300;
     auto scene = GatyaDrawScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }
 
 void GatyaSimulatorScene::createAndMoveGatyaTenDrawScene()
 {
+    removeFromParentAndCleanup(true);
+    GameManager::sharedGameManager()->totalAmount += 3000;
     auto scene = GatyaTenDrawScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }

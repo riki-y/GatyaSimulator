@@ -52,6 +52,7 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		754306601C45752A00B7AE6E /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 7543065F1C45752A00B7AE6E /* cover.png */; };
+		758D27B41C4FEB7A00C62F20 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 758D27B21C4FEB7A00C62F20 /* GameManager.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -161,6 +162,8 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		7543065F1C45752A00B7AE6E /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
+		758D27B21C4FEB7A00C62F20 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
+		758D27B31C4FEB7A00C62F20 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -347,6 +350,8 @@
 				E4D76FD21C4C1A8E00BE7F0D /* CardSprite.cpp */,
 				E4D76FD31C4C1A8E00BE7F0D /* CardSprite.h */,
 				E4D76FCF1C4BE5BA00BE7F0D /* Common.h */,
+				758D27B21C4FEB7A00C62F20 /* GameManager.cpp */,
+				758D27B31C4FEB7A00C62F20 /* GameManager.h */,
 				E46853021C4254BA0072E53D /* GirlsSelectScene.cpp */,
 				E46853031C4254BA0072E53D /* GirlsSelectScene.h */,
 				E489A8941C440F9500A75BE8 /* GatyaSimulatorScene.cpp */,
@@ -570,6 +575,7 @@
 				E4D76FCE1C4BE2E900BE7F0D /* GatyaTenDrawScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				E4D76FCB1C4BD6AD00BE7F0D /* GatyaDrawScene.cpp in Sources */,
+				758D27B41C4FEB7A00C62F20 /* GameManager.cpp in Sources */,
 				E46853041C4254BA0072E53D /* GirlsSelectScene.cpp in Sources */,
 				E4D76FD41C4C1A8E00BE7F0D /* CardSprite.cpp in Sources */,
 				E4D76FC01C4B847900BE7F0D /* ButtonSprite.cpp in Sources */,

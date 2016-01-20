@@ -8,6 +8,7 @@
 
 #include "GirlsSelectScene.h"
 #include "GatyaSimulatorScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -138,9 +139,10 @@ ButtonSprite::ButtonType GirlsSelectScene::getTouchButtonType(Point touchPos, Bu
 
 void GirlsSelectScene::createAndMoveGatyaSimulatorScene()
 {
-    cocos2d::UserDefault* user = cocos2d::UserDefault::sharedUserDefault();
-    user->setIntegerForKey("selectCardNum", selectCardNum);
+    GameManager::sharedGameManager()->selectCardNum = selectCardNum;
+    GameManager::sharedGameManager()->totalAmount = 0;
     
+    removeFromParentAndCleanup(true);
     auto scene = GatyaSimulatorScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }

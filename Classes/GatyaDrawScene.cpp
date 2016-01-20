@@ -6,9 +6,10 @@
 //
 //
 
-#include "GatyaDrawScene.h"
 #include <random>
+#include "GatyaDrawScene.h"
 #include "GatyaSimulatorScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -52,10 +53,10 @@ bool GatyaDrawScene::init()
 void GatyaDrawScene::initCard()
 {
     if (isSRCard()) {
-        int i = arc4random_uniform(SR_CARD_NUM + 1);
+        int i = arc4random_uniform((int)SRGirlList.size());
         _card.filePath = SRGirlList.at(i);
     } else {
-        int i = arc4random_uniform(R_CARD_NUM + 1);
+        int i = arc4random_uniform((int)RGirlList.size());
         _card.filePath = RGirlList.at(i);
     }
     
@@ -128,6 +129,7 @@ ButtonSprite::ButtonType GatyaDrawScene::getTouchButtonType(Point touchPos, Butt
 
 void GatyaDrawScene::backGatyaSimulatorScene()
 {
+    removeFromParentAndCleanup(true);
     auto scene = GatyaSimulatorScene::createScene();
     Director::getInstance()->replaceScene(scene);
 
@@ -135,6 +137,9 @@ void GatyaDrawScene::backGatyaSimulatorScene()
 
 void GatyaDrawScene::retryGatyaDrawScene()
 {
+    GameManager::sharedGameManager()->totalAmount += 300;
+    
+    removeFromParentAndCleanup(true);
     auto scene = GatyaDrawScene::createScene();
     Director::getInstance()->replaceScene(scene);
 }

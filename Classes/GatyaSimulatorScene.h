@@ -21,15 +21,18 @@ class GatyaSimulatorScene : public cocos2d::Layer
 protected:
     enum ZOrder {
         Z_BACKGROUND,
+        Z_LABEL,
         Z_BUTTON,
     };
     
     enum Tag {
         T_BACKGROUND,
+        T_LABEL,
         T_BUTTON,
     };
     
     void initGatyaButton(); // ガチャボタンの初期化
+    void initTotalAmountLabel(); // 合計金額のラベルを初期化
     void createAndMoveGatyaDrawScene(); // ガチャを引く画面を作って移動
     void createAndMoveGatyaTenDrawScene(); // 10連ガチャを引く画面を作って移動
     ButtonSprite* createButton(ButtonSprite::ButtonType buttonType, ButtonSprite::PositionIndex positionIndex); // ボタンを作る

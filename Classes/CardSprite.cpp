@@ -7,6 +7,7 @@
 //
 
 #include "CardSprite.h"
+#include <unistd.h>
 
 USING_NS_CC;
 
